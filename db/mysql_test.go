@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/davecgh/go-spew/spew"
 	"testing"
+	"znote-server-go/models"
 )
 
 func TestMysqlConnect(t *testing.T) {
@@ -15,7 +16,7 @@ func TestMysqlConnect(t *testing.T) {
 func TestMysqlCreate(t *testing.T) {
 	ConnectMySql()
 	db := GetMySqlDB()
-	user := &User{
+	user := &models.User{
 		UserName: "__test",
 		Email:    "__test",
 		NickName: "__test",
@@ -26,7 +27,7 @@ func TestMysqlCreate(t *testing.T) {
 		t.Logf("%+v\n", result.Error)
 	}
 	{
-		var users []User
+		var users []models.User
 		result := db.Find(&users)
 		t.Logf("%+v\n", result.Error)
 		t.Log(spew.Sdump(users))
