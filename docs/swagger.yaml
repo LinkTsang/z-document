@@ -1,0 +1,25 @@
+basePath: /api
+host: localhost:8000
+info:
+  contact: {}
+  description: This is the ZNote server.
+  title: ZNote Server
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: login
+      produces:
+      - application/json
+      summary: login
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: register
+      produces:
+      - application/json
+      summary: register
+swagger: "2.0"
