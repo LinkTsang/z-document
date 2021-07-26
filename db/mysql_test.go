@@ -8,13 +8,13 @@ import (
 )
 
 func TestMysqlConnect(t *testing.T) {
-	ConnectMySql()
+	InitMySqlDB()
 	db := GetMySqlDB()
 	fmt.Printf("db: %+v\n", db)
 }
 
 func TestMysqlCreate(t *testing.T) {
-	ConnectMySql()
+	InitMySqlDB()
 	db := GetMySqlDB()
 	user := &models.User{
 		UserName: "__test",
