@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"znote-server-go/routers"
+	"z-document/routers"
 )
 
 // @title ZNote Server

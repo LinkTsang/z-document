@@ -4,7 +4,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"time"
-	"znote-server-go/config"
+	"z-document/config"
 )
 
 var db *gorm.DB

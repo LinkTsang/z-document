@@ -1,4 +1,4 @@
-module znote-server-go
+module z-document
 
 go 1.16
 

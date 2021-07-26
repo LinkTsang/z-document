@@ -2,10 +2,10 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"znote-server-go/controllers"
-	_ "znote-server-go/docs"
-	"znote-server-go/repositories"
-	"znote-server-go/services"
+	"z-document/controllers"
+	_ "z-document/docs"
+	"z-document/repositories"
+	"z-document/services"
 )
 
 func InitAccountRouter(r *gin.RouterGroup) {

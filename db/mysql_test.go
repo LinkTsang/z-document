@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/davecgh/go-spew/spew"
 	"testing"
-	"znote-server-go/models"
+	"z-document/models"
 )
 
 func TestMysqlConnect(t *testing.T) {

@@ -1,6 +1,6 @@
 package repositories
 
-import "znote-server-go/models"
+import "z-document/models"
 
 type AccountRepository interface {
 	Login(user models.User) (models.User, error)

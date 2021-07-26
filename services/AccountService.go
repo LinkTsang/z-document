@@ -1,8 +1,8 @@
 package services
 
 import (
-	"znote-server-go/models"
-	"znote-server-go/repositories"
+	"z-document/models"
+	"z-document/repositories"
 )
 
 type AccountService interface {

@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"znote-server-go/controllers"
-	_ "znote-server-go/docs"
+	"z-document/controllers"
+	_ "z-document/docs"
 )
 
 func InitRouter() *gin.Engine {

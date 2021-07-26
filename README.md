@@ -1,1 +1,1 @@
-# znote-server-go
+# z-document

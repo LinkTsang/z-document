@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"znote-server-go/services"
+	"z-document/services"
 )
 
 type RegisterRequest struct {
