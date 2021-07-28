@@ -20,11 +20,12 @@ type LoginRequest struct {
 type AccountController interface {
 	Login(*gin.Context)
 	Register(*gin.Context)
+	Logout(*gin.Context)
 }
 
 type accountController struct {
-	service services.AccountService
 	AccountController
+	service services.AccountService
 }
 
 func NewAccountController(service services.AccountService) AccountController {
@@ -61,4 +62,14 @@ func (c *accountController) Login(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusOK, RespSuccess)
+}
+
+// Logout godoc
+// @Summary Logout
+// @Description Logout
+// @Accept json
+// @Produce json
+// @Router /auth/logout [post]
+func (c *accountController) Logout(ctx *gin.Context) {
+	ctx.JSON(http.StatusBadRequest, RespNotImplemented)
 }
