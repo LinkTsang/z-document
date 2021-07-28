@@ -21,6 +21,7 @@ type Article struct {
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt
+	UserID    uint
 	Title     string
 	Content   string
 }
