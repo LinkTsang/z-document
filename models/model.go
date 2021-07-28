@@ -16,7 +16,7 @@ type User struct {
 	Password  string
 }
 
-type Document struct {
+type Article struct {
 	ID        uint `gorm:"primarykey"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
