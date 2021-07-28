@@ -17,19 +17,19 @@ type LoginRequest struct {
 	Password string `json:"password" binding:"required"`
 }
 
-type AccountController interface {
+type UserController interface {
 	Login(*gin.Context)
 	Register(*gin.Context)
 	Logout(*gin.Context)
 }
 
-type accountController struct {
-	AccountController
-	service services.AccountService
+type userController struct {
+	UserController
+	service services.UserService
 }
 
-func NewAccountController(service services.AccountService) AccountController {
-	return &accountController{
+func NewUserController(service services.UserService) UserController {
+	return &userController{
 		service: service,
 	}
 }
@@ -40,7 +40,7 @@ func NewAccountController(service services.AccountService) AccountController {
 // @Accept json
 // @Produce json
 // @Router /auth/register [post]
-func (c *accountController) Register(ctx *gin.Context) {
+func (c *userController) Register(ctx *gin.Context) {
 	var json RegisterRequest
 	if err := ctx.ShouldBindJSON(&json); err != nil {
 		ctx.JSON(http.StatusBadRequest, RespNotImplemented)
@@ -55,7 +55,7 @@ func (c *accountController) Register(ctx *gin.Context) {
 // @Accept json
 // @Produce json
 // @Router /auth/login [post]
-func (c *accountController) Login(ctx *gin.Context) {
+func (c *userController) Login(ctx *gin.Context) {
 	var json LoginRequest
 	if err := ctx.ShouldBindJSON(&json); err != nil {
 		ctx.JSON(http.StatusBadRequest, RespNotImplemented)
@@ -70,6 +70,6 @@ func (c *accountController) Login(ctx *gin.Context) {
 // @Accept json
 // @Produce json
 // @Router /auth/logout [post]
-func (c *accountController) Logout(ctx *gin.Context) {
+func (c *userController) Logout(ctx *gin.Context) {
 	ctx.JSON(http.StatusBadRequest, RespNotImplemented)
 }

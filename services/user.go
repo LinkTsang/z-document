@@ -7,28 +7,28 @@ import (
 	"z-document/repositories"
 )
 
-type AccountService interface {
+type UserService interface {
 	Login(user models.User) error
 	Register(user models.User) error
 	Logout(user models.User) error
 }
 
-type accountService struct {
-	repository repositories.AccountRepository
+type userService struct {
+	repository repositories.UserRepository
 }
 
-func NewAccountService(accountRepository repositories.AccountRepository) AccountService {
-	return &accountService{
-		repository: accountRepository,
+func NewUserService(userRepository repositories.UserRepository) UserService {
+	return &userService{
+		repository: userRepository,
 	}
 }
 
-func (service accountService) Login(user models.User) error {
+func (service userService) Login(user models.User) error {
 	_, err := service.repository.Login(user)
 	return err
 }
 
-func (service accountService) Register(user models.User) error {
+func (service userService) Register(user models.User) error {
 	u, err := service.repository.FindUserByUsername(user.UserName)
 
 	if err == gorm.ErrRecordNotFound {
@@ -43,6 +43,6 @@ func (service accountService) Register(user models.User) error {
 	return err
 }
 
-func (service accountService) Logout(user models.User) error {
+func (service userService) Logout(user models.User) error {
 	panic("implement me")
 }

@@ -8,10 +8,10 @@ import (
 	"z-document/services"
 )
 
-func InitAccountRouter(r *gin.RouterGroup) {
-	repository := repositories.NewAccountRepository()
-	accountService := services.NewAccountService(repository)
-	c := controllers.NewAccountController(accountService)
+func InitUserRouter(r *gin.RouterGroup) {
+	repository := repositories.NewUserRepository()
+	userService := services.NewUserService(repository)
+	c := controllers.NewUserController(userService)
 	auth := r.Group("/auth")
 	{
 		auth.POST("/login", c.Login)

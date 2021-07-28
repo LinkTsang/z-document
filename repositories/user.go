@@ -6,7 +6,7 @@ import (
 	"z-document/models"
 )
 
-type AccountRepository interface {
+type UserRepository interface {
 	CreateUser(user models.User) (models.User, error)
 	FindUserByID(id uint) (models.User, error)
 	FindUserByUsername(username string) (models.User, error)
@@ -15,45 +15,45 @@ type AccountRepository interface {
 	DeleteUser(user models.User) error
 }
 
-type accountRepository struct {
+type userRepository struct {
 	db *gorm.DB
 }
 
-func NewAccountRepository() AccountRepository {
-	return &accountRepository{
+func NewUserRepository() UserRepository {
+	return &userRepository{
 		db: db.GetMySqlDB(),
 	}
 }
 
-func (r *accountRepository) CreateUser(user models.User) (models.User, error) {
+func (r *userRepository) CreateUser(user models.User) (models.User, error) {
 	tx := r.db.Omit("ID").Create(&user)
 	return user, tx.Error
 }
 
-func (r *accountRepository) FindUserByID(id uint) (models.User, error) {
+func (r *userRepository) FindUserByID(id uint) (models.User, error) {
 	var user models.User
 	tx := r.db.First(&user, id)
 	return user, tx.Error
 }
 
-func (r *accountRepository) FindUserByUsername(username string) (models.User, error) {
+func (r *userRepository) FindUserByUsername(username string) (models.User, error) {
 	var user models.User
 	tx := r.db.First(&user, "username = ?", username)
 	return user, tx.Error
 }
 
-func (r *accountRepository) Login(user models.User) (models.User, error) {
+func (r *userRepository) Login(user models.User) (models.User, error) {
 	var result models.User
 	tx := r.db.Where("user_name = ? AND password = ?", user.UserName, user.Password).First(&result)
 	return result, tx.Error
 }
 
-func (r *accountRepository) UpdateUser(user models.User) (models.User, error) {
+func (r *userRepository) UpdateUser(user models.User) (models.User, error) {
 	tx := r.db.Save(&user)
 	return user, tx.Error
 }
 
-func (r *accountRepository) DeleteUser(user models.User) error {
+func (r *userRepository) DeleteUser(user models.User) error {
 	tx := r.db.Delete(&user)
 	return tx.Error
 }

@@ -21,7 +21,7 @@ func InitRouter() *gin.Engine {
 
 	api := r.Group("/api")
 
-	InitAccountRouter(api)
+	InitUserRouter(api)
 
 	return r
 }

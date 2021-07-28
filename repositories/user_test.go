@@ -8,9 +8,9 @@ import (
 	"z-document/models"
 )
 
-func TestAccountRegisterAndLogin(t *testing.T) {
+func TestUserRegisterAndLogin(t *testing.T) {
 	db.InitMySqlDB()
-	r := NewAccountRepository()
+	r := NewUserRepository()
 
 	var user models.User
 	var err error
